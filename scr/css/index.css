@@ -1,17 +1,24 @@
 .screen {
-  background-color: grey;
+  background-color: white;
   height: 60vw;
 }
 
 .input {
-  background-color: black;
+  background-color: #1d1e20;
   height: 117.5vw;
 }
-.input button {
-  background-color: chartreuse;
+.input .zero {
+  width: 180px;
+}
+
+.but {
+  background-color: #26262b;
   color: white;
-  margin: 3px;
-  margin-top: 2.5em;
+  margin: 0.1em;
+  margin-top: 1.7em;
+  border-radius: 12px;
+  width: 50px;
+  height: 50px;
 }
 
 /*# sourceMappingURL=index.css.map */
