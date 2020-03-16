@@ -1,8 +1,11 @@
 
 
 .screen {
-    background-color: white;
+    background-color: gray;
     height: 60vw;
+    pre {
+        height: 50px;
+    }
 }
 
 .input {
