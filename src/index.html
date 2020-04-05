@@ -21,8 +21,6 @@
         <div class="screen">
             <div class="">
                 <h2 id="math"></h2>
-                <!-- <h2 id="l2"></h2>
-                <h2 id="l3"></h2> -->
                 <h2 id="result"></h2>
             </div>
         </div>
@@ -32,9 +30,9 @@
             <div>
                 <button onclick="clean()" type="button" name="button">C</button>
 
-                <button type="button" name="button">(</button>
+                <button onclick="pressParent('(')" type="button" name="button">(</button>
 
-                <button type="button" name="button">)</button>
+                <button onclick="pressParent(')')" type="button" name="button">)</button>
 
                 <button onclick="pressOperator('/')" type="button" name="button">÷</button>
             </div>
