@@ -19,22 +19,22 @@
     <div class="calculadora">
 
         <div class="screen">
-            <div class="">
-                <h2 id="math"></h2>
-                <h2 id="result"></h2>
+            <div>
+                <h2 id="math" class="tela1"></h2>
+                <h2 id="result" class="tela2"></h2>
             </div>
         </div>
 
         <div class="input flex-container">
 
             <div>
-                <button onclick="clean()" type="button" name="button">C</button>
+                <button onclick="clean()" id="limpa" type="button" name="button">C</button>
 
                 <button onclick="pressParent('(')" type="button" name="button">(</button>
 
                 <button onclick="pressParent(')')" type="button" name="button">)</button>
 
-                <button onclick="pressOperator('/')" type="button" name="button">÷</button>
+                <button onclick="pressOperator('/')" id="opt" type="button" name="button">/</button>
             </div>
 
             <div>
@@ -44,7 +44,7 @@
 
                 <button onclick="pressNum('9')" type="button" name="button">9</button>
 
-                <button onclick="pressOperator('*')" type="button" name="button">x</button>
+                <button onclick="pressOperator('*')" id="opt" type="button" name="button">x</button>
             </div>
 
             <div>
@@ -54,7 +54,7 @@
 
                 <button onclick="pressNum('6')" type="button" name="button">6</button>
 
-                <button onclick="pressOperator('-')" type="button" name="button">-</button>
+                <button onclick="pressOperator('-')" id="opt" type="button" name="button">-</button>
             </div>
 
             <div>
@@ -64,15 +64,15 @@
 
                 <button onclick="pressNum('3')" type="button" name="button">3</button>
 
-                <button onclick="pressOperator('+')" type="button" name="button">+</button>
+                <button onclick="pressOperator('+')" id="opt" type="button" name="button">+</button>
             </div>
 
             <div>
-                <button onclick="pressNum('0')" type="button" name="button">0</button>
+                <button onclick="pressNum('0')" id="zero" type="button" name="button" style="flex-grow: 8;">0</button>
 
-                <button onclick="pressNum('.')" type="button" name="button">.</button>
+                <button onclick="pressNum('.')" type="button" name="button" style="flex-grow: 1;">.</button>
 
-                <button onclick="calc()" type="button" name="button">=</button>
+                <button onclick="calc()" id="igual" type="button" name="button" style="flex-grow: 1;">=</button>
             </div>
 
         </div>
@@ -80,7 +80,6 @@
     </div>
 
 </body>
-
 
 <script type="text/javascript" src="js/index.js"></script>
 
