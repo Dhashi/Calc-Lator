@@ -18,11 +18,11 @@
   text-align: right;
 }
 .screen .tela1 {
-  font-size: 35px;
+  font-size: 2.188em;
 }
 .screen .tela2 {
-  font-size: 50px;
-  padding-top: 20px;
+  font-size: 3.125em;
+  padding-top: 0.5em;
 }
 
 .input {
@@ -32,13 +32,14 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  align-content: space-between;
 }
 .input button {
   color: white;
   background: #4c4c54;
-  margin: 0 1.3em 0;
-  width: 3.8em;
-  height: 3.8em;
+  margin: 0 1em 0;
+  width: 4.2em;
+  height: 4.2em;
   border-radius: 40%;
 }
 .input #limpa {
@@ -53,6 +54,33 @@
 .input #zero {
   padding: 0 69px 0;
   border-radius: 15px;
+}
+
+@media screen and (min-width: 900px) {
+  .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calculadora {
+    width: 100vw;
+    margin-top: 7vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+  }
+
+  .screen {
+    width: 65vw;
+  }
+
+  .input {
+    height: 50vh;
+    width: 65vw;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
