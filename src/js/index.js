@@ -10,7 +10,6 @@ var ar = []
 var resuBuffer = null
 var a = null
 
-
 // DISPLAY
 function display() {
     const screen = document.getElementById('math')
@@ -24,39 +23,49 @@ function display() {
 
 //  BOTOES
 function pressNum(number) {
-    screenNumBuffer += number
-    ar[indBuffer] = screenNumBuffer
-    console.log(`Number ${indBuffer}: ${ar[indBuffer]}`);
+    if (isNaN(ar[ar.length-1]) && ar[ar.length-1] == ')') {
+        pressOperator('*')
+    } else if (isNaN(ar[ar.length-1])) {
+        screenNumBuffer = ''
+        ar.push(number)
+        screenNumBuffer = number
+    } else {
+        screenNumBuffer += number
+        ar[ar.length-1] = screenNumBuffer
+    }
+
+    console.log(`Number ${ar.length}: ${screenNumBuffer}`);
 
     return display()
 }
 
 function pressOperator(opt) {
-    screenOptBuffer = opt
-    indBuffer++
-    ar[indBuffer] = screenOptBuffer
+    ar.push(opt)
 
-    console.log(`Operador ${indBuffer}: ${indBuffer}`);
+    console.log(`Operador ${ar.length}: ${ar[ar.length-1]}`);
 
     screenNumBuffer = ''
     screenOptBuffer = ''
-    indBuffer++
 
     return display()
 }
 
 function pressParent(paret) {
     if (paret == '(') {
-        ar[indBuffer] = paret
-        indBuffer++
+        if (isNaN(ar[ar.length-1])) {
+            ar.push(paret)
+        } else {
+            ar.push('*')
+            ar.push(paret)
+        }
     } else {
-        indBuffer++
-        ar[indBuffer] = paret
+        ar.push(paret)
     }
+
+    console.log(`Operador ${ar.length}: ${ar[ar.length-1]}`);
 
     return display()
 }
-
 
 
 // RESULTADO
@@ -123,7 +132,7 @@ function  calc() {
 function displayResu() {
     const screen = document.getElementById('result')
     resuBuffer = ar[0].toString().length
-    
+
     if (resuBuffer > 11) {
         a = (resuBuffer - 11) + 10
         screen.innerHTML = `${(ar[0] / 10**a).toFixed(4)}x10e${a}`
