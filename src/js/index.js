@@ -7,6 +7,9 @@ var screenBuffer = ''
 // ARRAY
 var ar = []
 
+var resuBuffer = null
+var a = null
+
 
 // DISPLAY
 function display() {
@@ -59,7 +62,7 @@ function pressParent(paret) {
 // RESULTADO
 function  calc() {
     // Parentese
-    for (o=0 ;o<3 ;o++) {
+    for (o=0 ;o<5 ;o++) {
       for (var i=0; i<ar.length; i++) {
         if (ar[i] == '(') {
           for (a=i; a<ar.length; a++) {
@@ -119,7 +122,18 @@ function  calc() {
 
 function displayResu() {
     const screen = document.getElementById('result')
-    screen.innerHTML = ar
+    resuBuffer = ar[0].toString().length
+    
+    if (resuBuffer > 11) {
+        a = (resuBuffer - 11) + 10
+        screen.innerHTML = `${(ar[0] / 10**a).toFixed(4)}x10e${a}`
+
+    } else if (resuBuffer > 11 && ar[0] < 1) {
+        screen.innerHTML = ar[0].toFixed(5)
+
+    } else {
+        screen.innerHTML = ar
+    }
 }
 
 

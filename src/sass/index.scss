@@ -15,7 +15,7 @@
     width: 100%;
     padding-top: 10px;
 
-    h2 {
+    p {
         margin: 0px;
         text-align: right;
     }
@@ -47,6 +47,12 @@
         height: 4.2em;
         border-radius: 40%;
     }
+    #linha1 {
+        button {
+            height: 2.3em;
+            border-radius: 16px;
+        }
+    }
 
     #limpa {
         background: #e63437;
@@ -56,10 +62,6 @@
     }
     #igual {
         background: #00dc72;
-    }
-    #zero {
-        padding: 0 69px 0;
-        border-radius: 15px;
     }
 }
 

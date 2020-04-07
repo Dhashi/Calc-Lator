@@ -20,12 +20,22 @@
 
         <div class="screen">
             <div>
-                <h2 id="math" class ="tela1"></h2>
-                <h2 id="result" class="tela2"></h2>
+                <p id="math" class ="tela1"></p>
+                <p id="result" class="tela2"></p>
             </div>
         </div>
 
         <div class="input flex-container">
+
+            <div id="linha1">
+                <button type="button" name="button" disabled>|\</button>
+
+                <button type="button" name="button">^</button>
+
+                <button type="button" name="button" disabled>%</button>
+
+                <button type="button" name="button">?</button>
+            </div>
 
             <div>
                 <button onclick="clean()" id="limpa" type="button" name="button">C</button>
@@ -68,11 +78,13 @@
             </div>
 
             <div>
-                <button onclick="pressNum('0')" id="zero" type="button" name="button" style="flex-grow: 8;">0</button>
+                <button onclick="pressNum('.')" type="button" name="button">.</button>
 
-                <button onclick="pressNum('.')" type="button" name="button" style="flex-grow: 1;">.</button>
+                <button onclick="pressNum('0')" id="zero" type="button" name="button">0</button>
 
-                <button onclick="calc()" id="igual" type="button" name="button" style="flex-grow: 1;">=</button>
+                <button type="button" name="button"><<</button>
+
+                <button onclick="calc()" id="igual" type="button" name="button">=</button>
             </div>
 
         </div>
