@@ -1,10 +1,12 @@
-// RESET GERAL
+@import "but.scss";
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: o;
     box-sizing: border-box;
+    touch-action: none;
 }
 
 // SCREEN / TELA
@@ -39,30 +41,30 @@
     align-items: center;
     align-content: space-between;
 
-    button {
-        color: white;
-        background: #4c4c54;
-        margin: 0 1em 0;
-        width: 4.2em;
-        height: 4.2em;
-        border-radius: 40%;
-    }
-    #linha1 {
-        button {
-            height: 2.3em;
-            border-radius: 16px;
-        }
+    .num {
+        @include make-buton(#555555, white)
     }
 
-    #limpa {
-        background: #e63437;
+    .opt {
+        @include make-buton(#ff9100, white)
     }
-    #opt {
-        background: #ff9100;
+
+    .clear {
+        @include make-buton(#e63437, black)
     }
-    #igual {
-        background: #00dc72;
+
+    .remove {
+        @include make-buton(#555555, white)
     }
+
+    .equal {
+        @include make-buton(#00dc72, black)
+    }
+
+    .linha {
+        @include make-small-button(#555555, white)
+    }
+
 }
 
 @media screen and (min-width: 900px) {

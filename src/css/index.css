@@ -4,6 +4,7 @@
   border: 0;
   font-size: o;
   box-sizing: border-box;
+  touch-action: none;
 }
 
 .screen {
@@ -34,26 +35,119 @@
   align-items: center;
   align-content: space-between;
 }
-.input button {
+.input .num {
   color: white;
-  background: #4c4c54;
+  background: #555555;
+  border: 2.5px solid #555555;
   margin: 0 1em 0;
   width: 4.2em;
   height: 4.2em;
   border-radius: 40%;
+  background-image: none;
+  -webkit-tap-highlight-color: transparent;
+  transition-duration: 0.3s;
 }
-.input #linha1 button {
+.input .num::-moz-focus-inner {
+  border: 0;
+}
+.input .num:active {
+  background-color: white;
+  color: black;
+}
+.input .opt {
+  color: white;
+  background: #ff9100;
+  border: 2.5px solid #ff9100;
+  margin: 0 1em 0;
+  width: 4.2em;
+  height: 4.2em;
+  border-radius: 40%;
+  background-image: none;
+  -webkit-tap-highlight-color: transparent;
+  transition-duration: 0.3s;
+}
+.input .opt::-moz-focus-inner {
+  border: 0;
+}
+.input .opt:active {
+  background-color: white;
+  color: black;
+}
+.input .clear {
+  color: black;
+  background: #e63437;
+  border: 2.5px solid #e63437;
+  margin: 0 1em 0;
+  width: 4.2em;
+  height: 4.2em;
+  border-radius: 40%;
+  background-image: none;
+  -webkit-tap-highlight-color: transparent;
+  transition-duration: 0.3s;
+}
+.input .clear::-moz-focus-inner {
+  border: 0;
+}
+.input .clear:active {
+  background-color: white;
+  color: black;
+}
+.input .remove {
+  color: white;
+  background: #555555;
+  border: 2.5px solid #555555;
+  margin: 0 1em 0;
+  width: 4.2em;
+  height: 4.2em;
+  border-radius: 40%;
+  background-image: none;
+  -webkit-tap-highlight-color: transparent;
+  transition-duration: 0.3s;
+}
+.input .remove::-moz-focus-inner {
+  border: 0;
+}
+.input .remove:active {
+  background-color: white;
+  color: black;
+}
+.input .equal {
+  color: black;
+  background: #00dc72;
+  border: 2.5px solid #00dc72;
+  margin: 0 1em 0;
+  width: 4.2em;
+  height: 4.2em;
+  border-radius: 40%;
+  background-image: none;
+  -webkit-tap-highlight-color: transparent;
+  transition-duration: 0.3s;
+}
+.input .equal::-moz-focus-inner {
+  border: 0;
+}
+.input .equal:active {
+  background-color: white;
+  color: black;
+}
+.input .linha {
+  color: white;
+  background: #555555;
+  border: 2.5px solid #555555;
+  margin: 0 1em 0;
+  width: 4.2em;
   height: 2.3em;
   border-radius: 16px;
+  background-image: none;
+  -webkit-tap-highlight-color: transparent;
+  transition-duration: 0.3s;
 }
-.input #limpa {
-  background: #e63437;
+.input .linha::-moz-focus-inner {
+  border: 0;
 }
-.input #opt {
-  background: #ff9100;
-}
-.input #igual {
-  background: #00dc72;
+.input .linha:active {
+  background-color: white;
+  color: black;
 }
 
 @media screen and (min-width: 900px) {

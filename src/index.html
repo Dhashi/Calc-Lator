@@ -9,6 +9,9 @@
     <!--Meu Arquivo css-->
     <link type="text/css" rel="stylesheet" href="css/index.css" />
 
+    <!-- Importando math.js -->
+    <script src="math.js" type="text/javascript"></script>
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -27,64 +30,64 @@
 
         <div class="input flex-container">
 
-            <div id="linha1">
-                <button type="button" name="button" disabled>|\</button>
+            <div>
+                <button class="linha" type="button">|\</button>
 
-                <button type="button" name="button">^</button>
+                <button class="linha" onclick="pressParent('^')">^</button>
 
-                <button type="button" name="button" disabled>%</button>
+                <button class="linha" type="button">%</button>
 
-                <button type="button" name="button">?</button>
+                <button class="linha" type="button">?</button>
             </div>
 
             <div>
-                <button onclick="clean()" id="limpa" type="button" name="button">C</button>
+                <button class="clear" onclick="clean()" id="limpa">C</button>
 
-                <button onclick="pressParent('(')" type="button" name="button">(</button>
+                <button class="num" onclick="pressParent('(')" id="test">(</button>
 
-                <button onclick="pressParent(')')" type="button" name="button">)</button>
+                <button class="num" onclick="pressParent(')')">)</button>
 
-                <button onclick="pressOperator('/')" id="opt" type="button" name="button">/</button>
+                <button class="opt" onclick="pressOperator('/')" id="opt">/</button>
             </div>
 
             <div>
-                <button onclick="pressNum('7')"  type="button" name="button">7</button>
+                <button class="num" onclick="pressNum('7')">7</button>
 
-                <button onclick="pressNum('8')" type="button" name="button">8</button>
+                <button class="num" onclick="pressNum('8')">8</button>
 
-                <button onclick="pressNum('9')" type="button" name="button">9</button>
+                <button class="num" onclick="pressNum('9')">9</button>
 
-                <button onclick="pressOperator('*')" id="opt" type="button" name="button">x</button>
+                <button class="opt" onclick="pressOperator('*')" id="opt">x</button>
             </div>
 
             <div>
-                <button onclick="pressNum('4')" type="button" name="button">4</button>
+                <button class="num" onclick="pressNum('4')">4</button>
 
-                <button onclick="pressNum('5')" type="button" name="button">5</button>
+                <button class="num" onclick="pressNum('5')">5</button>
 
-                <button onclick="pressNum('6')" type="button" name="button">6</button>
+                <button class="num" onclick="pressNum('6')">6</button>
 
-                <button onclick="pressOperator('-')" id="opt" type="button" name="button">-</button>
+                <button class="opt" onclick="pressOperator('-')" id="opt">-</button>
             </div>
 
             <div>
-                <button onclick="pressNum('1')" type="button" name="button">1</button>
+                <button class="num" onclick="pressNum('1')">1</button>
 
-                <button onclick="pressNum('2')" type="button" name="button">2</button>
+                <button class="num" onclick="pressNum('2')">2</button>
 
-                <button onclick="pressNum('3')" type="button" name="button">3</button>
+                <button class="num" onclick="pressNum('3')">3</button>
 
-                <button onclick="pressOperator('+')" id="opt" type="button" name="button">+</button>
+                <button class="opt" onclick="pressOperator('+')" id="opt">+</button>
             </div>
 
             <div>
-                <button onclick="pressNum('.')" type="button" name="button">.</button>
+                <button class="num" onclick="pressNum('.')">.</button>
 
-                <button onclick="pressNum('0')" id="zero" type="button" name="button">0</button>
+                <button class="num" onclick="pressNum('0')" id="zero">0</button>
 
-                <button type="button" name="button"><<</button>
+                <button class="remove" onclick="softClean()"><<</button>
 
-                <button onclick="calc()" id="igual" type="button" name="button">=</button>
+                <button class="equal" onclick="calc()" id="igual">=</button>
             </div>
 
         </div>
@@ -94,5 +97,6 @@
 </body>
 
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/css.js"></script>
 
 </html>

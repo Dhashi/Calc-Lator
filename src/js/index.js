@@ -1,68 +1,67 @@
-// CONTADORES
-var indBuffer = 0
-// BUFFERS
-var screenNumBuffer = ''
-var screenOptBuffer = ''
-var screenBuffer = ''
-// ARRAY
-var ar = []
 
-var resuBuffer = null
-var a = null
+// BUFFERS
+var numBuffer = ''
+var screenBuffer = ''
+var resuBuffer = ''
+// ARRAY
+var vetor = []
+
+var a = ''
+
 
 // DISPLAY
 function display() {
     const screen = document.getElementById('math')
-    ar.forEach(function(nome){
-        screenBuffer += `${nome} `
-    })
-    screen.innerHTML = `${screenBuffer}`
+
+    if (vetor.length < 30) {
+        vetor.forEach(function(nome){
+            screenBuffer += `${nome} `
+        })
+        screen.innerHTML = `${screenBuffer}`
+    } else {
+        window.alert('número máximo de operações atingido');
+    }
+
     screenBuffer = ''
 }
 
 
 //  BOTOES
 function pressNum(number) {
-    if (isNaN(ar[ar.length-1]) && ar[ar.length-1] == ')') {
+    if (isNaN(vetor[vetor.length-1]) && vetor[vetor.length-1] == ')') {
         pressOperator('*')
-    } else if (isNaN(ar[ar.length-1])) {
-        screenNumBuffer = ''
-        ar.push(number)
-        screenNumBuffer = number
+        numBuffer = ''
+        vetor.push(number)
+        numBuffer = number
+    } else if (isNaN(vetor[vetor.length-1])) {
+        numBuffer = ''
+        vetor.push(number)
+        numBuffer = number
     } else {
-        screenNumBuffer += number
-        ar[ar.length-1] = screenNumBuffer
+        numBuffer += number
+        vetor[vetor.length-1] = numBuffer
     }
-
-    console.log(`Number ${ar.length}: ${screenNumBuffer}`);
-
     return display()
 }
 
 function pressOperator(opt) {
-    ar.push(opt)
-
-    console.log(`Operador ${ar.length}: ${ar[ar.length-1]}`);
-
-    screenNumBuffer = ''
-    screenOptBuffer = ''
+    vetor.push(opt)
+    numBuffer = ''
 
     return display()
 }
 
 function pressParent(paret) {
     if (paret == '(') {
-        if (isNaN(ar[ar.length-1])) {
-            ar.push(paret)
+        if (isNaN(vetor[vetor.length-1])) {
+            vetor.push(paret)
         } else {
-            ar.push('*')
-            ar.push(paret)
+            vetor.push('*')
+            vetor.push(paret)
         }
     } else {
-        ar.push(paret)
+        vetor.push(paret)
     }
-
-    console.log(`Operador ${ar.length}: ${ar[ar.length-1]}`);
 
     return display()
 }
@@ -70,78 +69,28 @@ function pressParent(paret) {
 
 // RESULTADO
 function  calc() {
-    // Parentese
-    for (o=0 ;o<5 ;o++) {
-      for (var i=0; i<ar.length; i++) {
-        if (ar[i] == '(') {
-          for (a=i; a<ar.length; a++) {
-            // Divisão
-            if (ar[a] == '/') {
-              ar[a] = (Number(ar[a-1]) / Number(ar[a+1]))
-              ar.splice(a-1, 3, ar[a])
-            }
-            // Multiplicação
-            if (ar[a] == '*') {
-              ar[a] = (Number(ar[a-1]) * Number(ar[a+1]))
-              ar.splice(a-1, 3, ar[a])
-            }
-            // Subtração
-            if (ar[a] == '-') {
-              ar[a] = (Number(ar[a-1]) - Number(ar[a+1]))
-              ar.splice(a-1, 3, ar[a])
-            }
-            // Soma
-            if (ar[a] == '+') {
-              ar[a] = (Number(ar[a-1]) + Number(ar[a+1]))
-              ar.splice(a-1, 3, ar[a])
-            }
-            //Resolução do Parentese
-            if (ar[a] == ')' &&  ar[a-2] == '(') {
-              ar.splice(a-2, 3, ar[a-1])
-              a = ar.length
-            }
-          }
-        }
-      }
-      // Resolução Geral
-      for (var i=0; i<ar.length; i++) {
-        // Divisão
-        if (ar[i] == '/') {
-            ar[i] = (Number(ar[i-1]) / Number(ar[i+1]))
-            ar.splice(i-1, 3, ar[i])
-            }
-        // Multiplicação
-        if (ar[i] == '*') {
-          ar[i] = (Number(ar[i-1]) * Number(ar[i+1]))
-          ar.splice(i-1, 3, ar[i])
-        }
-        if (ar[i] == '-') {
-            ar[i] = (Number(ar[i-1]) - Number(ar[i+1]))
-            ar.splice(i-1, 3, ar[i])
-            }
-        // Soma
-        if (ar[i] == '+') {
-          ar[i] = (Number(ar[i-1]) + Number(ar[i+1]))
-          ar.splice(i-1, 3, ar[i])
-        }
-      }
-    }
-    return displayResu()
+    vetor.forEach(function(nome){
+        resuBuffer += `${nome} `
+    })
+
+    resuBuffer = math.evaluate(resuBuffer)
+
+    return displayResu(resuBuffer)
 }
 
-function displayResu() {
+function displayResu(result) {
     const screen = document.getElementById('result')
-    resuBuffer = ar[0].toString().length
 
-    if (resuBuffer > 11) {
-        a = (resuBuffer - 11) + 10
-        screen.innerHTML = `${(ar[0] / 10**a).toFixed(4)}x10e${a}`
+    a = result.toString().length
 
-    } else if (resuBuffer > 11 && ar[0] < 1) {
-        screen.innerHTML = ar[0].toFixed(5)
+    if (a > 11) {
+        screen.innerHTML = `${(result / 10**a).toFixed(4)}e${(a)}`
+
+    } else if (a > 11 && result < 1) {
+        screen.innerHTML = result.toFixed(5)
 
     } else {
-        screen.innerHTML = ar
+        screen.innerHTML = result
     }
 }
 
@@ -151,8 +100,14 @@ function clean() {
     const math = document.getElementById('math').innerHTML=""
     const resu = document.getElementById('result').innerHTML=""
 
-    screenNumBuffer = ''
-    screenOptBuffer = ''
-    ar = []
-    indBuffer = 0
+    vetor = []
+    numBuffer = ''
+    screenBuffer = ''
+    resuBuffer = ''
+}
+
+function softClean() {
+    vetor.pop()
+    
+    return display()
 }
